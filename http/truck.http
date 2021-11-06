@@ -1,0 +1,14 @@
+POST {{api_base_url}}/api/v0/truck
+Content-Type: application/json
+
+{
+  "name": "Roi Loth Truck",
+  "description": "Ave Cesar, rosae rosam, et spiritus rex ! Ah non, parce que là, j’en ai marre !"
+}
+
+###
+GET {{api_base_url}}/api/v0/truck
+Accept: application/json
+
+###
+
