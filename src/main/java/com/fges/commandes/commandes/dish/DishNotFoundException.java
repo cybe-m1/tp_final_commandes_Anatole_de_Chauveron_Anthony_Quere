@@ -4,11 +4,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(value = HttpStatus.NOT_FOUND)
-public class DishException extends Exception{
-    public DishException() {
+public class DishNotFoundException extends Exception {
+    public DishNotFoundException() {
     }
 
-    public DishException(String message) {
+    public DishNotFoundException(String message) {
         super(message);
     }
 }

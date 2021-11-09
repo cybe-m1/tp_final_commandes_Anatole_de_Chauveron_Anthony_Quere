@@ -17,7 +17,7 @@ public class MenuController {
     }
 
     @PostMapping
-    public Menu createDish(@RequestBody CreateMenuRequestDto createMenuRequestDto) {
+    public Menu createMenu(@RequestBody CreateMenuRequestDto createMenuRequestDto) {
         Menu menu = new Menu();
         menu.setName(createMenuRequestDto.getName());
         menu.setDescription(createMenuRequestDto.getDescription());
@@ -32,13 +32,13 @@ public class MenuController {
         return menuService.listAllMenus();
     }
 
-    @PutMapping("/{id}/add_dish/{dishId}")
+    @PostMapping("/{id}/dish/{dishId}")
     public Menu addDishToMenu(@RequestParam Long id, @RequestParam Long dishId) throws Exception {
         return menuService.addDishToMenu(id, dishId);
     }
 
-    @PutMapping("/{id}/remove_dish/{dish_id}")
-    public Menu removeDishToMenu(@RequestParam Long id, @RequestParam Long dishId) throws Exception {
+    @DeleteMapping("/{id}/dish/{dish_id}")
+    public Menu removeDishFromMenu(@RequestParam Long id, @RequestParam Long dishId) throws Exception {
         return menuService.removeDishFromMenu(id, dishId);
     }
 }

@@ -13,11 +13,11 @@ GET {{api_base_url}}/api/v0/menus
 Accept: application/json
 
 ###
-PUT {{api_base_url}}/api/v0/menus/1/add_dish/1
+POST {{api_base_url}}/api/v0/menus/1/dish/1
 Accept: application/json
 
 ###
-PUT {{api_base_url}}/api/v0/menus/1/remove_dish/1
+DELETE /api/v0/menus/1/dish/1
 Accept: application/json
 
 ###
