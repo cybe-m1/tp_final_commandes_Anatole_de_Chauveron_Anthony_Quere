@@ -17,6 +17,7 @@ public class Dish {
     private Long id;
     private String name;
     private String description;
+    @Enumerated(EnumType.STRING)
     private DishType type;
     private Float price;
     private Float tva;
