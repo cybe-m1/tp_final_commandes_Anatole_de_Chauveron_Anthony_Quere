@@ -15,8 +15,8 @@ public class DishController {
     }
 
     @GetMapping
-    public List<Dish> getAllDish() {
-        return dishService.listAllDishs();
+    public List<Dish> getAllDishes() {
+        return dishService.listAllDishes();
     }
 
     @PostMapping

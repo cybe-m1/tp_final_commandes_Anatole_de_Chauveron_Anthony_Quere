@@ -16,7 +16,7 @@ public class DishService {
         return dishRepository.save(dish);
     }
 
-    public List<Dish> listAllDishs() {
+    public List<Dish> listAllDishes() {
         return dishRepository.findAll();
     }
 }
