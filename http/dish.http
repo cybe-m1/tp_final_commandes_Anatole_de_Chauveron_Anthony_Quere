@@ -1,0 +1,17 @@
+POST {{api_base_url}}/api/v0/dishes
+Content-Type: application/json
+
+{
+  "name": "Le Croque",
+  "description": "La contribution millénaire d'un des plus valeureux chevalier de Kaamelott.",
+  "price": 3.5,
+  "tva": 1.5,
+  "type": "MAIN"
+}
+
+###
+GET {{api_base_url}}/api/v0/dishes
+Accept: application/json
+
+###
+

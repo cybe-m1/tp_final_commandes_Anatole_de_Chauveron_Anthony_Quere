@@ -1,4 +1,4 @@
-POST {{api_base_url}}/api/v0/truck
+POST {{api_base_url}}/api/v0/trucks
 Content-Type: application/json
 
 {
@@ -7,7 +7,7 @@ Content-Type: application/json
 }
 
 ###
-GET {{api_base_url}}/api/v0/truck
+GET {{api_base_url}}/api/v0/trucks
 Accept: application/json
 
 ###

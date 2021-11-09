@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v0/dishs")
+@RequestMapping("/api/v0/dishes")
 public class DishController {
     private final DishService dishService;
 
@@ -29,6 +29,6 @@ public class DishController {
         dish.setTva(createDishRequestDto.getTva());
         dish.setPrice(createDishRequestDto.getPrice());
 
-        dishService.createDish(dish);
+        return dishService.createDish(dish);
     }
 }
