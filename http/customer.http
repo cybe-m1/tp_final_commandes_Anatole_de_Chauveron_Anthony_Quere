@@ -1,5 +1,5 @@
 ### Create a customer
-POST {{api_base_url}}/api/v0/customer
+POST {{api_base_url}}/api/v0/customers
 Content-Type: application/json
 
 {
@@ -19,7 +19,7 @@ client.test("Request executed successfully", function() {
 %}
 
 ### Create a customer with existing phone number
-POST {{api_base_url}}/api/v0/customer
+POST {{api_base_url}}/api/v0/customers
 Content-Type: application/json
 
 {
