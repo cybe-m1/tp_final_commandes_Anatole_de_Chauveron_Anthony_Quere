@@ -21,4 +21,10 @@ public class TruckService {
         return this.truckRepository.save(truck);
     }
 
+    public Truck findTruckById(Long id) throws TruckNotFoundException {
+        return truckRepository
+                .findById(id)
+                .orElseThrow(TruckNotFoundException::new);
+    }
+
 }

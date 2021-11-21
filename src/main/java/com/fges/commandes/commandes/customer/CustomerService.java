@@ -19,4 +19,10 @@ public class CustomerService {
     public Optional<Customer> findByPhoneNumber(String phoneNumber) {
         return customerRepository.findCustomerByPhoneNumber(phoneNumber);
     }
+
+    public Customer findCustomerById(Long id) throws CustomerNotFoundException {
+        return this.customerRepository
+                .findById(id)
+                .orElseThrow(CustomerNotFoundException::new);
+    }
 }
