@@ -13,6 +13,8 @@ import com.fges.commandes.commandes.truck.TruckNotFoundException;
 import com.fges.commandes.commandes.truck.TruckService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/api/v0/orders")
 public class OrderController {
@@ -35,6 +37,11 @@ public class OrderController {
         Order order = new Order(customer, truck);
 
         return orderService.createOrder(order);
+    }
+
+    @GetMapping("/{customer_id}/orders")
+    public List<Order> listCustomerPreviousOrder(@PathVariable Long customer_id) {
+        return orderService.listCustomerPreviousOrder(customer_id);
     }
 
     @PutMapping("/{id}/dishes")

@@ -1,5 +1,6 @@
 package com.fges.commandes.commandes.order;
 
+import com.fges.commandes.commandes.customer.Customer;
 import com.fges.commandes.commandes.customer.CustomerService;
 import com.fges.commandes.commandes.dish.Dish;
 import com.fges.commandes.commandes.dish.DishNotFoundException;
@@ -9,6 +10,8 @@ import com.fges.commandes.commandes.menu.MenuNotFoundException;
 import com.fges.commandes.commandes.menu.MenuService;
 import com.fges.commandes.commandes.truck.TruckService;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 
 @Service
@@ -36,6 +39,13 @@ public class OrderService {
         return orderRepository
                 .findById(id)
                 .orElseThrow(OrderNotFoundException::new);
+    }
+
+    public List<Order> listCustomerPreviousOrder(Long id) {
+        return (List<Order>) orderRepository
+                .findAll()
+                .stream()
+                .filter(order -> order.getCustomer().getId().equals(id));
     }
 
     public Order addDish(Long orderId, Long dishId) throws OrderNotFoundException, DishNotFoundException {
