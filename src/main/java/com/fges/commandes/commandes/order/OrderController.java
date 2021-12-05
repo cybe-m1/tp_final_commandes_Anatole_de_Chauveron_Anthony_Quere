@@ -39,11 +39,6 @@ public class OrderController {
         return orderService.createOrder(order);
     }
 
-    @GetMapping("/{customer_id}/orders")
-    public List<Order> listCustomerPreviousOrder(@PathVariable Long customer_id) {
-        return orderService.listCustomerPreviousOrder(customer_id);
-    }
-
     @PutMapping("/{id}/dishes")
     public Order addDish(@PathVariable Long id, @RequestBody AddDishRequestDto dto) throws OrderNotFoundException, DishNotFoundException {
         return orderService.addDish(id, dto.getDishId());

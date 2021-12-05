@@ -45,7 +45,8 @@ public class OrderService {
         return (List<Order>) orderRepository
                 .findAll()
                 .stream()
-                .filter(order -> order.getCustomer().getId().equals(id));
+                .filter(order -> order.getCustomer().getId().equals(id))
+                .limit(100);
     }
 
     public Order addDish(Long orderId, Long dishId) throws OrderNotFoundException, DishNotFoundException {
