@@ -1,33 +1,28 @@
 package com.fges.commandes.commandes.order;
 
-import com.fges.commandes.commandes.customer.CustomerService;
+import com.fges.commandes.commandes.customer.Customer;
 import com.fges.commandes.commandes.dish.Dish;
 import com.fges.commandes.commandes.dish.DishNotFoundException;
-import com.fges.commandes.commandes.dish.DishService;
+import com.fges.commandes.commandes.dish.IDish;
+import com.fges.commandes.commandes.menu.IMenu;
 import com.fges.commandes.commandes.menu.Menu;
 import com.fges.commandes.commandes.menu.MenuNotFoundException;
-import com.fges.commandes.commandes.menu.MenuService;
-import com.fges.commandes.commandes.truck.TruckService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 
 @Service
-public class OrderService implements IOrder {
+class OrderService implements IOrder {
     private final OrderRepository orderRepository;
 
-    private final DishService dishService;
-    private final MenuService menuService;
-    private final TruckService truckService;
-    private final CustomerService customerService;
+    private final IDish iDish;
+    private final IMenu iMenu;
 
-    public OrderService(OrderRepository orderRepository, DishService dishService, MenuService menuService, TruckService truckService, CustomerService customerService) {
+    public OrderService(OrderRepository orderRepository, IDish iDish, IMenu iMenu) {
         this.orderRepository = orderRepository;
-        this.dishService = dishService;
-        this.menuService = menuService;
-        this.truckService = truckService;
-        this.customerService = customerService;
+        this.iDish = iDish;
+        this.iMenu = iMenu;
     }
 
     public Order createOrder(Order order) {
@@ -40,18 +35,13 @@ public class OrderService implements IOrder {
                 .orElseThrow(OrderNotFoundException::new);
     }
 
-    @Override
-    public List<Order> listCustomerPreviousOrder(Long id) {
-        return (List<Order>) orderRepository
-                .findAll()
-                .stream()
-                .filter(order -> order.getCustomer().getId().equals(id))
-                .limit(100);
+    public List<Order> listCustomerPreviousOrder(Customer customer) {
+        return orderRepository.findByCustomer(customer);
     }
 
     public Order addDish(Long orderId, Long dishId) throws OrderNotFoundException, DishNotFoundException {
         Order order = findOrderById(orderId);
-        Dish dish = dishService.findDishById(dishId);
+        Dish dish = iDish.findDishById(dishId);
 
         order.getDishes().add(dish);
         return orderRepository.save(order);
@@ -59,7 +49,7 @@ public class OrderService implements IOrder {
 
     public Order addMenu(Long orderId, Long menuId) throws OrderNotFoundException, MenuNotFoundException {
         Order order = findOrderById(orderId);
-        Menu menu = menuService.findMenuById(menuId);
+        Menu menu = iMenu.findMenuById(menuId);
 
         order.getMenus().add(menu);
         return orderRepository.save(order);

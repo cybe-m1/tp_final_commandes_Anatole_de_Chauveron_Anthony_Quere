@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class CustomerService {
+class CustomerService implements ICustomer {
     private final CustomerRepository customerRepository;
     private final IOrder iOrder;
 
@@ -36,6 +36,6 @@ public class CustomerService {
                 .findById(id)
                 .orElseThrow(CustomerNotFoundException::new);
 
-        return iOrder.listCustomerPreviousOrder(customer.getId());
+        return iOrder.listCustomerPreviousOrder(customer);
     }
 }
