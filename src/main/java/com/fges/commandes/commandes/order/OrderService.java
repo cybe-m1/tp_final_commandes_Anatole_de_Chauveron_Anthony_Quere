@@ -1,6 +1,5 @@
 package com.fges.commandes.commandes.order;
 
-import com.fges.commandes.commandes.customer.Customer;
 import com.fges.commandes.commandes.customer.CustomerService;
 import com.fges.commandes.commandes.dish.Dish;
 import com.fges.commandes.commandes.dish.DishNotFoundException;
@@ -15,7 +14,7 @@ import java.util.List;
 
 
 @Service
-public class OrderService {
+public class OrderService implements IOrder {
     private final OrderRepository orderRepository;
 
     private final DishService dishService;
@@ -41,6 +40,7 @@ public class OrderService {
                 .orElseThrow(OrderNotFoundException::new);
     }
 
+    @Override
     public List<Order> listCustomerPreviousOrder(Long id) {
         return (List<Order>) orderRepository
                 .findAll()
