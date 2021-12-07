@@ -1,8 +1,10 @@
 package com.fges.commandes.commandes.customer;
 
 import com.fges.commandes.commandes.customer.dto.CreateCustomerRequestDto;
+import com.fges.commandes.commandes.order.Order;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -15,9 +17,14 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @GetMapping("/phonenumber/{phoneNmber}")
-    public Optional<Customer> getCustomerByPhoneNumber(@PathVariable String phoneNmber) {
-        return customerService.findByPhoneNumber(phoneNmber);
+    @GetMapping("/phonenumber/{phoneNumber}")
+    public Optional<Customer> getCustomerByPhoneNumber(@PathVariable String phoneNumber) {
+        return customerService.findByPhoneNumber(phoneNumber);
+    }
+
+    @GetMapping("/{customer_id}/previous_orders")
+    public List<Order> listCustomerPreviousOrder(@PathVariable Long customer_id) throws CustomerNotFoundException {
+        return customerService.listPreviousOrder(customer_id);
     }
 
     @PostMapping

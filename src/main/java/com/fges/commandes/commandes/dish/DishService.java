@@ -19,4 +19,10 @@ public class DishService {
     public List<Dish> listAllDishes() {
         return dishRepository.findAll();
     }
+
+    public Dish findDishById(Long id) throws DishNotFoundException {
+        return this.dishRepository
+                .findById(id)
+                .orElseThrow(DishNotFoundException::new);
+    }
 }

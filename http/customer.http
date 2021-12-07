@@ -35,7 +35,7 @@ client.test("Request failed", function() {
 %}
 
 ###
-GET {{api_base_url}}/api/v0/customer/phonenumber/0123456789
+GET {{api_base_url}}/api/v0/customers/phonenumber/0123456789
 Accept: application/json
 
 > {%
@@ -49,7 +49,7 @@ client.test("Request executed successfully", function() {
 %}
 
 ###
-GET {{api_base_url}}/api/v0/customer/phonenumber/123
+GET {{api_base_url}}/api/v0/customers/phonenumber/123
 Accept: application/json
 
 > {%
@@ -59,3 +59,12 @@ client.test("Request executed successfully", function() {
 });
 %}
 
+###
+GET {{api_base_url}}/api/v0/customers/1/previous_orders
+Accept: application/json
+
+> {%
+ client.test("Request executed successfully", function() {
+     client.assert(response.status === 200, "Request failed");
+ })
+ %}

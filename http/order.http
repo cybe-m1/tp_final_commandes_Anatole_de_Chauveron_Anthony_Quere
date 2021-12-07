@@ -1,0 +1,24 @@
+### Create an order
+POST {{api_base_url}}/api/v0/orders
+Content-Type: application/json
+
+{
+  "customerId": "1",
+  "truckId": "2"
+}
+
+### Add a dish to an order
+PUT {{api_base_url}}/api/v0/orders/3/dishes
+Content-Type: application/json
+
+{
+  "dishId": "4"
+}
+
+### Add a menu to an order
+PUT {{api_base_url}}/api/v0/orders/3/menus
+Content-Type: application/json
+
+{
+  "menuId": "5"
+}

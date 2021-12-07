@@ -53,4 +53,10 @@ public class MenuService {
 
         return menuRepository.save(menu.get());
     }
+
+    public Menu findMenuById(Long id) throws MenuNotFoundException {
+        return menuRepository
+                .findById(id)
+                .orElseThrow(MenuNotFoundException::new);
+    }
 }
