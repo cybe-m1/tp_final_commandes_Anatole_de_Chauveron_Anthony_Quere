@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class TruckService {
+class TruckService implements ITruck {
 
     private final TruckRepository truckRepository;
 

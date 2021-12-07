@@ -2,37 +2,35 @@ package com.fges.commandes.commandes.order;
 
 import com.fges.commandes.commandes.customer.Customer;
 import com.fges.commandes.commandes.customer.CustomerNotFoundException;
-import com.fges.commandes.commandes.customer.CustomerService;
+import com.fges.commandes.commandes.customer.ICustomer;
 import com.fges.commandes.commandes.dish.DishNotFoundException;
 import com.fges.commandes.commandes.menu.MenuNotFoundException;
 import com.fges.commandes.commandes.order.dto.AddDishRequestDto;
 import com.fges.commandes.commandes.order.dto.AddMenuRequestDto;
 import com.fges.commandes.commandes.order.dto.CreateOrderRequestDto;
+import com.fges.commandes.commandes.truck.ITruck;
 import com.fges.commandes.commandes.truck.Truck;
 import com.fges.commandes.commandes.truck.TruckNotFoundException;
-import com.fges.commandes.commandes.truck.TruckService;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api/v0/orders")
-public class OrderController {
+class OrderController {
 
     private final OrderService orderService;
-    private final CustomerService customerService;
-    private final TruckService truckService;
+    private final ITruck iTruck;
+    private final ICustomer iCustomer;
 
-    public OrderController(OrderService orderService, CustomerService customerService, TruckService truckService) {
+    public OrderController(OrderService orderService, ITruck iTruck, ICustomer iCustomer) {
         this.orderService = orderService;
-        this.customerService = customerService;
-        this.truckService = truckService;
+        this.iTruck = iTruck;
+        this.iCustomer = iCustomer;
     }
 
     @PostMapping
     public Order createOrder (@RequestBody CreateOrderRequestDto orderDto) throws CustomerNotFoundException, TruckNotFoundException {
-        Customer customer = customerService.findCustomerById(orderDto.getCustomerId());
-        Truck truck = truckService.findTruckById(orderDto.getTruckId());
+        Customer customer = iCustomer.findCustomerById(orderDto.getCustomerId());
+        Truck truck = iTruck.findTruckById(orderDto.getTruckId());
 
         Order order = new Order(customer, truck);
 

@@ -7,7 +7,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v0/dishes")
-public class DishController {
+class DishController {
     private final DishService dishService;
 
     public DishController(DishService dishService) {

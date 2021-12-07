@@ -9,7 +9,7 @@ import java.util.zip.DeflaterInputStream;
 
 @RestController
 @RequestMapping("/api/v0/menus")
-public class MenuController {
+class MenuController {
     private final MenuService menuService;
 
     public MenuController(MenuService menuService) {

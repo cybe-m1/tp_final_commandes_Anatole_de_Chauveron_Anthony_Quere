@@ -1,21 +1,19 @@
 package com.fges.commandes.commandes.menu;
 
-import com.fges.commandes.commandes.dish.Dish;
-import com.fges.commandes.commandes.dish.DishNotFoundException;
-import com.fges.commandes.commandes.dish.DishRepository;
+import com.fges.commandes.commandes.dish.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
-public class MenuService {
+class MenuService implements IMenu {
     private final MenuRepository menuRepository;
-    private final DishRepository dishRepository;
+    private final IDish iDish;
 
-    public MenuService(MenuRepository menuRepository, DishRepository dishRepository) {
+    public MenuService(MenuRepository menuRepository, IDish iDish) {
         this.menuRepository = menuRepository;
-        this.dishRepository = dishRepository;
+        this.iDish = iDish;
     }
 
     public Menu createMenu(Menu menu) {
@@ -30,12 +28,11 @@ public class MenuService {
         Optional<Menu> menu = menuRepository.findById(id);
         menu.orElseThrow(MenuNotFoundException::new);
 
-        Optional<Dish> dish = dishRepository.findById(dishId);
-        dish.orElseThrow(DishNotFoundException::new);
+        Dish dish = iDish.findDishById(dishId);
 
         menu.get()
                 .getDishes()
-                .add(dish.get());
+                .add(dish);
 
         return menuRepository.save(menu.get());
     }
@@ -44,12 +41,11 @@ public class MenuService {
         Optional<Menu> menu = menuRepository.findById(id);
         menu.orElseThrow(MenuNotFoundException::new);
 
-        Optional<Dish> dish = dishRepository.findById(dishId);
-        dish.orElseThrow(DishNotFoundException::new);
+        Dish dish = iDish.findDishById(dishId);
 
         menu.get()
                 .getDishes()
-                .remove(dish.get());
+                .remove(dish);
 
         return menuRepository.save(menu.get());
     }

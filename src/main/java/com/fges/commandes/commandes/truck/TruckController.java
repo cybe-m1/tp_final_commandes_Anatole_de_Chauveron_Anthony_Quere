@@ -7,7 +7,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v0/trucks")
-public class TruckController {
+class TruckController {
 
     private final TruckService truckService;
 

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class DishService {
+class DishService implements IDish {
     private final DishRepository dishRepository;
 
     public DishService(DishRepository dishRepository) {
