@@ -1,3 +1,4 @@
+### Create a menu
 POST {{api_base_url}}/api/v0/menus
 Content-Type: application/json
 
@@ -8,15 +9,15 @@ Content-Type: application/json
   "dishes": []
 }
 
-###
+### List all menus
 GET {{api_base_url}}/api/v0/menus
 Accept: application/json
 
-###
+### Add a dish
 POST {{api_base_url}}/api/v0/menus/1/dish/1
 Accept: application/json
 
-###
+### Delete a dish
 DELETE /api/v0/menus/1/dish/1
 Accept: application/json
 

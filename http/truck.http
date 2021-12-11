@@ -1,3 +1,4 @@
+### Create a truck
 POST {{api_base_url}}/api/v0/trucks
 Content-Type: application/json
 
@@ -6,7 +7,7 @@ Content-Type: application/json
   "description": "Ave Cesar, rosae rosam, et spiritus rex ! Ah non, parce que là, j’en ai marre !"
 }
 
-###
+### List all trucks
 GET {{api_base_url}}/api/v0/trucks
 Accept: application/json
 

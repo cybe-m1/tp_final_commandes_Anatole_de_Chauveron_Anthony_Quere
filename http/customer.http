@@ -34,7 +34,7 @@ client.test("Request failed", function() {
 });
 %}
 
-###
+### Find a customer by its phone number
 GET {{api_base_url}}/api/v0/customers/phonenumber/0123456789
 Accept: application/json
 
@@ -48,7 +48,7 @@ client.test("Request executed successfully", function() {
 });
 %}
 
-###
+### Find a customer by its phone number but customer does not exist
 GET {{api_base_url}}/api/v0/customers/phonenumber/123
 Accept: application/json
 
@@ -59,7 +59,7 @@ client.test("Request executed successfully", function() {
 });
 %}
 
-###
+### List Customer previous orders
 GET {{api_base_url}}/api/v0/customers/1/previous_orders
 Accept: application/json
 
