@@ -56,3 +56,11 @@ Ouvrez le projet dans un editeur de code, et lancez le projet.
 ### Tests
 
 :test_tube: Ce projet comporte également des fichiers de test dans le dossier [http](http/).
+
+## Summary
+
+- [Customers](docs/customers.md)
+- [Dishes](docs/dishes.md)
+- [Menus](docs/menus.md)
+- [Orders](docs/orders.md)
+- [Trucks](docs/trucks.md)
