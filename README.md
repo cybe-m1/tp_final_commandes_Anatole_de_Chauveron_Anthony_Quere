@@ -47,3 +47,9 @@ git clone https://github.com/cybe-m1/tp_final_commandes_Anatole_de_Chauveron_Ant
 ### Lancement du projet
 
 Ouvrez le projet dans un editeur de code, et lancez le projet.
+
+:globe_with_meridians: Le projet tourne sur le port _:8080_.
+
+## Requêtes
+
+:test_tube: Le code source du projet inclus un export de requetes pour le logicier Postman.
