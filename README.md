@@ -53,7 +53,7 @@ Ouvrez le projet dans un editeur de code, et lancez le projet.
 
 ### Postman
 
-:test_tube: Le code source du projet inclus un export de requetes pour le logicier Postman.
+:test_tube: Le code source du projet inclus un export de requetes pour le logicier Postman [ici](tp_component_prog_final.postman_collection.json).
 
 ### Tests
 
