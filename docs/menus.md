@@ -1,4 +1,4 @@
-## Menus
+## 📜 Menus
 
 Menus are a group of dishes, and can be ordered by customers.
 
