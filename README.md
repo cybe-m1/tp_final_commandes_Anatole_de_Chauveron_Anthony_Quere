@@ -4,6 +4,16 @@ _TP final de programmation par composant - Anatole de Chauveron et Anthony Quere
 
 Ce dépot est le rendu final du dernier TP de programmation par composants, traitant de la partie sur les Food Truck, les clients et les commandes.
 
+___
+
+**Author :** Anatole de Chauveron, Anthony Quere
+
+**Technos :** Java, Spring Boot
+
+**Licence :** All rights reserved
+
+___
+
 ## Summary
 
 Les éléments à implémenter étaient les suivants :
@@ -15,16 +25,6 @@ Les éléments à implémenter étaient les suivants :
 | :scroll: Menus | [menu's doc](docs/menus.md) | [menu's code](src/main/java/com/fges/commandes/commandes/menu) |
 | :page_facing_up: Orders | [order's](docs/orders.md) | [order's code](src/main/java/com/fges/commandes/commandes/order) |
 | :truck: Trucks | [truck's](docs/trucks.md) | [truck's code](src/main/java/com/fges/commandes/commandes/truck) |
-
-___
-
-**Author :** Anatole de Chauveron, Anthony Quere
-
-**Technos :** Java, Spring Boot
-
-**Licence :** All rights reserved
-
-___
 
 ## Utilisation
 
