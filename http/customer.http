@@ -60,7 +60,7 @@ client.test("Request executed successfully", function() {
 %}
 
 ###
-GET {{api_base_url}}/api/v0/customers/1/previous_orders
+GET {{api_base_url}}/api/v0/customers/9/previous_orders
 Accept: application/json
 
 > {%

@@ -33,12 +33,12 @@ class MenuController {
     }
 
     @PostMapping("/{id}/dish/{dishId}")
-    public Menu addDishToMenu(@RequestParam Long id, @RequestParam Long dishId) throws Exception {
+    public Menu addDishToMenu(@PathVariable Long id, @PathVariable Long dishId) throws Exception {
         return menuService.addDishToMenu(id, dishId);
     }
 
     @DeleteMapping("/{id}/dish/{dish_id}")
-    public Menu removeDishFromMenu(@RequestParam Long id, @RequestParam Long dishId) throws Exception {
-        return menuService.removeDishFromMenu(id, dishId);
+    public Menu removeDishFromMenu(@PathVariable Long id, @PathVariable Long dish_id) throws Exception {
+        return menuService.removeDishFromMenu(id, dish_id);
     }
 }
