@@ -31,9 +31,6 @@ ___
 openjdk version "11.0.11" 2021-04-20
 OpenJDK Runtime Environment (build 11.0.11+9-Ubuntu-0ubuntu2.20.04)
 OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.20.04, mixed mode, sharing)
-
-❯ spring --version
-spring version 104.0
 ```
 
 ### Installation
@@ -52,4 +49,10 @@ Ouvrez le projet dans un editeur de code, et lancez le projet.
 
 ## Requêtes
 
+### Postman
+
 :test_tube: Le code source du projet inclus un export de requetes pour le logicier Postman.
+
+### Tests
+
+:test_tube: Ce projet comporte également des fichiers de test dans le dossier [http](http/).
