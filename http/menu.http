@@ -21,12 +21,8 @@ Accept: application/json
 }
 
 ###
-DELETE {{api_base_url}}/api/v0/menus/2/dish
+DELETE {{api_base_url}}/api/v0/menus/2/dish/4
 Accept: application/json
-
-{
-  "dishId": "4"
-}
 
 ###
 

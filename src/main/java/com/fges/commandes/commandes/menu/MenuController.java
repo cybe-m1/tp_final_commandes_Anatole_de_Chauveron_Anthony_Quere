@@ -38,8 +38,8 @@ class MenuController {
         return menuService.addDishToMenu(id, dto.getDishId());
     }
 
-    @DeleteMapping("/{id}/dish")
-    public Menu removeDishFromMenu(@PathVariable Long id, @RequestBody AddDishRequestDto dto) throws Exception {
-        return menuService.removeDishFromMenu(id, dto.getDishId());
+    @DeleteMapping("/{id}/dish/{dish_id}")
+    public Menu removeDishFromMenu(@PathVariable Long id, @PathVariable Long dish_id) throws Exception {
+        return menuService.removeDishFromMenu(id, dish_id);
     }
 }

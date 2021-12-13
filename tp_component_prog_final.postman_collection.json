@@ -133,8 +133,17 @@
 					"request": {
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dishId\": \"4\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "http://localhost:8080/api/v0/menus/5/dish/4",
+							"raw": "http://localhost:8080/api/v0/menus/2/dish",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -144,9 +153,8 @@
 								"api",
 								"v0",
 								"menus",
-								"5",
-								"dish",
-								"4"
+								"2",
+								"dish"
 							]
 						}
 					},
@@ -158,7 +166,7 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v0/menus/5/dish/4",
+							"raw": "http://localhost:8080/api/v0/menus/2/dish/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -168,7 +176,7 @@
 								"api",
 								"v0",
 								"menus",
-								"5",
+								"2",
 								"dish",
 								"4"
 							]
@@ -244,7 +252,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"customerId\": \"2\",\n    \"truckId\": \"1\"\n}",
+							"raw": "{\n    \"customerId\": \"4\",\n    \"truckId\": \"1\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -274,7 +282,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"dishId\": \"4\"\n}",
+							"raw": "{\n    \"dishId\": \"3\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -282,7 +290,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/v0/orders/6/dishes",
+							"raw": "http://localhost:8080/api/v0/orders/5/dishes",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -292,7 +300,7 @@
 								"api",
 								"v0",
 								"orders",
-								"6",
+								"5",
 								"dishes"
 							]
 						}
@@ -306,7 +314,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"menuId\": \"5\"\n}",
+							"raw": "{\n  \"menuId\": \"2\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -314,7 +322,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/api/v0/orders/6/menus",
+							"raw": "http://localhost:8080/api/v0/orders/5/menus",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -324,7 +332,7 @@
 								"api",
 								"v0",
 								"orders",
-								"6",
+								"5",
 								"menus"
 							]
 						}
@@ -395,7 +403,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/api/v0/customers/2/previous_orders",
+							"raw": "http://localhost:8080/api/v0/customers/1/previous_orders",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -405,7 +413,7 @@
 								"api",
 								"v0",
 								"customers",
-								"2",
+								"1",
 								"previous_orders"
 							]
 						}
