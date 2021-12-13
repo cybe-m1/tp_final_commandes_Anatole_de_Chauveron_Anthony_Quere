@@ -8,11 +8,13 @@ Ce dépot est le rendu final du dernier TP de programmation par composants, trai
 
 Les éléments à implémenter étaient les suivants :
 
-- [Customers](docs/customers.md)
-- [Dishes](docs/dishes.md)
-- [Menus](docs/menus.md)
-- [Orders](docs/orders.md)
-- [Trucks](docs/trucks.md)
+| Component | Documentation | Code |
+|:---|:---:|:---:|
+| :people_holding_hands: Customers | [customer's doc](docs/customers.md) | [customer's code](src/main/java/com/fges/commandes/commandes/order) |
+| :cake: Dishes | [dishe's doc](docs/dishes.md) | [dish's code](src/main/java/com/fges/commandes/commandes/dish) |
+| :scroll: Menus | [menu's doc](docs/menus.md) | [menu's code](src/main/java/com/fges/commandes/commandes/menu) |
+| :page_facing_up: Orders | [order's](docs/orders.md) | [order's code](src/main/java/com/fges/commandes/commandes/order) |
+| :truck: Trucks | [truck's](docs/trucks.md) | [truck's code](src/main/java/com/fges/commandes/commandes/truck) |
 
 ___
 
