@@ -4,13 +4,15 @@ _TP final de programmation par composant - Anatole de Chauveron et Anthony Quere
 
 Ce dépot est le rendu final du dernier TP de programmation par composants, traitant de la partie sur les Food Truck, les clients et les commandes.
 
+## Summary
+
 Les éléments à implémenter étaient les suivants :
 
-  - foodtruck
-  - clients
-  - commandes
-  - menus
-  - plats
+- [Customers](docs/customers.md)
+- [Dishes](docs/dishes.md)
+- [Menus](docs/menus.md)
+- [Orders](docs/orders.md)
+- [Trucks](docs/trucks.md)
 
 ___
 
@@ -56,11 +58,3 @@ Ouvrez le projet dans un editeur de code, et lancez le projet.
 ### Tests
 
 :test_tube: Ce projet comporte également des fichiers de test dans le dossier [http](http/).
-
-## Summary
-
-- [Customers](docs/customers.md)
-- [Dishes](docs/dishes.md)
-- [Menus](docs/menus.md)
-- [Orders](docs/orders.md)
-- [Trucks](docs/trucks.md)
