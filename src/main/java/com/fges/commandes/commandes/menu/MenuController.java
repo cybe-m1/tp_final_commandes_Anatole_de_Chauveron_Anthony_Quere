@@ -1,6 +1,7 @@
 package com.fges.commandes.commandes.menu;
 
 import com.fges.commandes.commandes.dish.Dish;
+import com.fges.commandes.commandes.menu.dto.AddDishRequestDto;
 import com.fges.commandes.commandes.menu.dto.CreateMenuRequestDto;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,13 +33,13 @@ class MenuController {
         return menuService.listAllMenus();
     }
 
-    @PostMapping("/{id}/dish/{dishId}")
-    public Menu addDishToMenu(@PathVariable Long id, @PathVariable Long dishId) throws Exception {
-        return menuService.addDishToMenu(id, dishId);
+    @PostMapping("/{id}/dish")
+    public Menu addDishToMenu(@PathVariable Long id, @RequestBody AddDishRequestDto dto) throws Exception {
+        return menuService.addDishToMenu(id, dto.getDishId());
     }
 
-    @DeleteMapping("/{id}/dish/{dish_id}")
-    public Menu removeDishFromMenu(@PathVariable Long id, @PathVariable Long dish_id) throws Exception {
-        return menuService.removeDishFromMenu(id, dish_id);
+    @DeleteMapping("/{id}/dish")
+    public Menu removeDishFromMenu(@PathVariable Long id, @RequestBody AddDishRequestDto dto) throws Exception {
+        return menuService.removeDishFromMenu(id, dto.getDishId());
     }
 }
