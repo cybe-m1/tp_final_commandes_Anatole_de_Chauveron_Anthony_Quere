@@ -14,6 +14,7 @@ spring:
     generate-ddl: on
     hibernate:
       ddl-auto: none
+    defer-datasource-initialization: on
   sql:
     init:
       platform: h2
@@ -32,4 +33,6 @@ spring:
   # No initialization script to avoid having multiple times the same rows
   # Hibernate will handle the table creation.
 # --- End Postgres configuration ---
+
+
 
