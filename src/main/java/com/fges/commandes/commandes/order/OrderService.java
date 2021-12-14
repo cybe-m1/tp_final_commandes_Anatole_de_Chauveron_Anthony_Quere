@@ -8,11 +8,11 @@ import com.fges.commandes.commandes.menu.IMenu;
 import com.fges.commandes.commandes.menu.Menu;
 import com.fges.commandes.commandes.menu.MenuNotFoundException;
 import com.fges.commandes.commandes.order.dto.TotalAmountResponseDto;
+import com.fges.commandes.commandes.orderdishes.OrderDish;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 
 @Service
@@ -44,9 +44,19 @@ class OrderService implements IOrder {
 
     public Order addDish(Long orderId, Long dishId) throws OrderNotFoundException, DishNotFoundException {
         Order order = findOrderById(orderId);
-        Dish dish = iDish.findDishById(dishId);
 
-        order.getDishes().add(dish);
+        Optional<OrderDish> optionalOrderDish = order.getDishes().stream().filter(dish -> dish.getDishId().equals(dishId)).findFirst();
+
+        if (optionalOrderDish.isEmpty()) {
+            // Create a new order dish
+            Dish dish = iDish.findDishById(dishId);
+            order.getDishes().add(new OrderDish(dish));
+        } else {
+            // Add one to the quantity
+            optionalOrderDish
+                    .get()
+                    .setQuantity(optionalOrderDish.get().getQuantity() + 1);
+        }
         return orderRepository.save(order);
     }
 
@@ -54,7 +64,7 @@ class OrderService implements IOrder {
         Order order = findOrderById(orderId);
         Menu menu = iMenu.findMenuById(menuId);
 
-        order.getMenus().add(menu);
+//        order.getMenus().add(menu);
         return orderRepository.save(order);
     }
 
@@ -64,28 +74,28 @@ class OrderService implements IOrder {
         float tva = 0.0f;
 
         // Add dishes prices
-        for (Dish dish : order.getDishes()) {
-            total += dish.getPrice();
-            tva += dish.getPrice() * dish.getTva();
-        }
-
-        // Add menu prices
-        for (Menu menu : order.getMenus()) {
-            // Get dishes minus the smallest element
-            Set<Dish> dishes = menu.getDishes()
-                    .stream()
-                    .sorted((dish1, dish2) -> dish2.getPrice().compareTo(dish1.getPrice()))
-                    .skip(1)
-                    .collect(Collectors.toSet());
-
-            float menuPrice = 0.0f;
-
-            for (Dish dish : dishes) {
-                menuPrice += dish.getPrice() * (1 + dish.getTva());
-            }
-            total += menuPrice;
-            tva += menuPrice * menu.getTva();
-        }
+//        for (Dish dish : order.getDishes()) {
+//            total += dish.getPrice();
+//            tva += dish.getPrice() * dish.getTva();
+//        }
+//
+//        // Add menu prices
+//        for (Menu menu : order.getMenus()) {
+//            // Get dishes minus the smallest element
+//            Set<Dish> dishes = menu.getDishes()
+//                    .stream()
+//                    .sorted((dish1, dish2) -> dish2.getPrice().compareTo(dish1.getPrice()))
+//                    .skip(1)
+//                    .collect(Collectors.toSet());
+//
+//            float menuPrice = 0.0f;
+//
+//            for (Dish dish : dishes) {
+//                menuPrice += dish.getPrice() * (1 + dish.getTva());
+//            }
+//            total += menuPrice;
+//            tva += menuPrice * menu.getTva();
+//        }
 
 
         return new TotalAmountResponseDto(total, tva, total + tva);

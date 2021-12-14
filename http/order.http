@@ -8,7 +8,7 @@ Content-Type: application/json
 }
 
 ### Add a dish to an order
-PUT {{api_base_url}}/api/v0/orders/6/dishes
+PUT {{api_base_url}}/api/v0/orders/1/dishes
 Content-Type: application/json
 
 {

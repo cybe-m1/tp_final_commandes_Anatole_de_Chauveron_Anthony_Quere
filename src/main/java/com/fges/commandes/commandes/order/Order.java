@@ -1,8 +1,8 @@
 package com.fges.commandes.commandes.order;
 
 import com.fges.commandes.commandes.customer.Customer;
-import com.fges.commandes.commandes.dish.Dish;
-import com.fges.commandes.commandes.menu.Menu;
+import com.fges.commandes.commandes.orderdishes.OrderDish;
+import com.fges.commandes.commandes.ordermenus.OrderMenu;
 import com.fges.commandes.commandes.truck.Truck;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,10 +30,10 @@ public class Order {
     private Truck truck;
 
     @ManyToMany
-    private List<Dish> dishes;
+    private List<OrderDish> dishes;
 
     @ManyToMany
-    private List<Menu> menus;
+    private List<OrderMenu> menus;
 
     public Order(Customer customer, Truck truck) {
         this.customer = customer;
