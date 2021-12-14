@@ -13,12 +13,16 @@ Content-Type: application/json
 GET {{api_base_url}}/api/v0/menus
 Accept: application/json
 
-### Add a dish
-POST {{api_base_url}}/api/v0/menus/1/dish/1
+###
+POST {{api_base_url}}/api/v0/menus/2/dish
 Accept: application/json
 
-### Delete a dish
-DELETE /api/v0/menus/1/dish/1
+{
+  "dishId": "4"
+}
+
+###
+DELETE {{api_base_url}}/api/v0/menus/2/dish/4
 Accept: application/json
 
 ###

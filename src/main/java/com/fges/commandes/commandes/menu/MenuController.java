@@ -1,12 +1,10 @@
 package com.fges.commandes.commandes.menu;
 
-import com.fges.commandes.commandes.dish.Dish;
 import com.fges.commandes.commandes.menu.dto.AddDishToMenuRequestDto;
 import com.fges.commandes.commandes.menu.dto.CreateMenuRequestDto;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.zip.DeflaterInputStream;
 
 @RestController
 @RequestMapping("/api/v0/menus")
