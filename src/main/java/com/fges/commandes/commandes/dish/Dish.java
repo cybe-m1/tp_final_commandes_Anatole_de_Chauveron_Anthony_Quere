@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Setter
 @Getter
 @NoArgsConstructor
+@Table(name = "t_dish")
 public class Dish {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

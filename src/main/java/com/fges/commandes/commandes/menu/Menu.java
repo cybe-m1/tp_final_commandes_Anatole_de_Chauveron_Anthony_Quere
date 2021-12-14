@@ -12,6 +12,7 @@ import java.util.Set;
 @Setter
 @Getter
 @NoArgsConstructor
+@Table(name = "t_menu")
 public class Menu {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

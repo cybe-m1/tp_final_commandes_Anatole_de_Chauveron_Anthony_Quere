@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Setter
 @Getter
 @NoArgsConstructor
+@Table(name = "t_customer")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
