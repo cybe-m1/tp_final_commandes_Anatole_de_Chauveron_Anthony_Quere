@@ -43,3 +43,9 @@ VALUES
        (2, 1),
        (2, 2);
 
+
+-- insert into users(id, firstname, lastname, username, password, email, enabled) values (1, 'Admin', 'Client', 'admin', 'adminpwd', 'admin@lacatholille.fr', true);
+-- insert into users(id, firstname, lastname, username, password, email, enabled) values (2, 'User', 'Client', 'user', 'userpwd', 'user@lacatholille.fr', true);
+--
+-- insert into authorities(username, authority) values ('user', 'USER');
+-- insert into authorities(username, authority) values ('admin', 'ADMIN');

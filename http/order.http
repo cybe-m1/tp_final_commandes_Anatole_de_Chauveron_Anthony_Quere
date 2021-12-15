@@ -1,6 +1,7 @@
 ### Create an order
 POST {{api_base_url}}/api/v0/orders
 Content-Type: application/json
+Authorization: Basic admin:adminpwd
 
 {
   "customerId": "1",
