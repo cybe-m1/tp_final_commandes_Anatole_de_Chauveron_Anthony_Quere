@@ -1,5 +1,6 @@
 package com.fges.commandes.commandes.orderdishes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fges.commandes.commandes.dish.Dish;
 import com.fges.commandes.commandes.order.Order;
 import lombok.Getter;
@@ -13,26 +14,26 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @Table(name = "t_order_dish")
-@IdClass(OrderDishPrimaryKeys.class)
 public class OrderDish {
-
     @Id
-    private Long orderId;
-    @Id
-    private Long dishId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    int quantity;
+    private int quantity;
 
-    @ManyToOne
-    @JoinColumn(name = "orderId", referencedColumnName = "id", insertable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    @JoinColumn
     private Order order;
 
     @ManyToOne
-    @JoinColumn(name = "dishId", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn
     private Dish dish;
 
-    public OrderDish(Dish dish) {
+    public OrderDish(Order order, Dish dish) {
         this.quantity = 1;
+        this.order = order;
         this.dish = dish;
     }
+
 }

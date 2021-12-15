@@ -16,9 +16,9 @@ Content-Type: application/json
 }
 
 ### Add a menu to an order
-PUT {{api_base_url}}/api/v0/orders/6/menus
+PUT {{api_base_url}}/api/v0/orders/1/menus
 Content-Type: application/json
 
 {
-  "menuId": "5"
+  "menuId": "1"
 }
