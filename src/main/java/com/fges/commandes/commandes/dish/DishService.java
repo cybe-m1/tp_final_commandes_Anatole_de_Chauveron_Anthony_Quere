@@ -16,6 +16,10 @@ class DishService implements IDish {
         return dishRepository.save(dish);
     }
 
+    public List<Dish> findByNameContaining(String search) {
+        return dishRepository.findAllByNameContaining(search);
+    }
+
     public List<Dish> listAllDishes() {
         return dishRepository.findAll();
     }

@@ -48,12 +48,12 @@ VALUES
        (1, 1, 1),
        (2, 1, 1);
 
-INSERT INTO t_order_dish (order_id, dish_id, quantity)
+INSERT INTO t_order_dish (id, order_id, dish_id, quantity)
 VALUES
-       (1, 1, 4),
-       (1, 2, 5);
+       (1, 1, 1, 4),
+       (2, 1, 2, 5);
 
-INSERT INTO t_order_menu (order_id, menu_id, quantity)
+INSERT INTO t_order_menu (id, order_id, menu_id, quantity)
 VALUES
-       (1, 1, 6),
-       (1, 2, 7)
+       (1, 1, 1, 6),
+       (2, 1, 2, 7);

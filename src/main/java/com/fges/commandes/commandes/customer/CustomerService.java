@@ -19,9 +19,11 @@ class CustomerService implements ICustomer {
 
     public Customer createCustomer(Customer customer) throws CustomerPhoneNumberTakenException {
         // Check that the phone number is not already taken
-        customerRepository
-                .findCustomerByPhoneNumber(customer.getPhoneNumber())
-                .orElseThrow(CustomerPhoneNumberTakenException::new);
+        Optional<Customer> customerWithSamePhoneNumber = customerRepository
+                .findCustomerByPhoneNumber(customer.getPhoneNumber());
+        if (customerWithSamePhoneNumber.isPresent()) {
+            throw new CustomerPhoneNumberTakenException();
+        }
 
         return customerRepository.save(customer);
     }

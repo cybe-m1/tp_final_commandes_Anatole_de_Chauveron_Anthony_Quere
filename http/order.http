@@ -27,3 +27,8 @@ Authorization: {{ admin_authorization_b64 }}
 {
   "menuId": "1"
 }
+
+### Gert total of order
+GET {{api_base_url}}/api/v0/orders/1/total
+Authorization: {{ user_authorization_b64 }}
+Accept: Application/json

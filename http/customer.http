@@ -15,7 +15,7 @@ client.test("Request executed successfully", function() {
   client.assert(response.status === 200, "Response status is not 200");
   client.assert(response.body.firstName === "Bohort", "Invalid first name");
   client.assert(response.body.lastName === "De Gaune", "Invalid last name");
-  client.assert(response.body.phoneNumber === "0123456789", "Invalid phone number");
+  client.assert(response.body.phoneNumber === "9876543210", "Invalid phone number");
   client.assert(response.body.id !== null, "Id not generated");
 });
 %}
@@ -34,7 +34,7 @@ Authorization: {{ admin_authorization_b64 }}
 
 > {%
 client.test("Request failed", function() {
-  client.assert(response.status === 500, "Response status is not 500");
+  client.assert(response.status === 409, "Response status is not 409");
 });
 %}
 
@@ -46,23 +46,19 @@ Authorization: {{ user_authorization_b64 }}
 > {%
 client.test("Request executed successfully", function() {
   client.assert(response.status === 200, "Response status is not 200");
-  client.assert(response.body.firstName === "Bohort", "Invalid first name");
-  client.assert(response.body.lastName === "De Gaune", "Invalid last name");
   client.assert(response.body.phoneNumber === "0123456789", "Invalid phone number");
-  client.assert(response.body.id !== null, "Id not generated");
 });
 %}
 
 ### Find a customer by its phone number but customer does not exist
-GET {{api_base_url}}/api/v0/customers/phonenumber/0123456789
+GET {{api_base_url}}/api/v0/customers/phonenumber/0123456789999
 Accept: application/json
 Authorization: {{ user_authorization_b64 }}
 
 
 > {%
-client.test("Request executed successfully", function() {
-  client.assert(response.status === 200, "Response status is not 200");
-  client.assert(response.body === null, "Response body is not null");
+client.test("Request executed not successfully", function() {
+  client.assert(response.status === 404, "Response status is not 404");
 });
 %}
 
