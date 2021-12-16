@@ -43,9 +43,17 @@ VALUES
        (2, 1),
        (2, 2);
 
+INSERT INTO t_order (id, customer_id, truck_id)
+VALUES
+       (1, 1, 1),
+       (2, 1, 1);
 
--- insert into users(id, firstname, lastname, username, password, email, enabled) values (1, 'Admin', 'Client', 'admin', 'adminpwd', 'admin@lacatholille.fr', true);
--- insert into users(id, firstname, lastname, username, password, email, enabled) values (2, 'User', 'Client', 'user', 'userpwd', 'user@lacatholille.fr', true);
---
--- insert into authorities(username, authority) values ('user', 'USER');
--- insert into authorities(username, authority) values ('admin', 'ADMIN');
+INSERT INTO t_order_dish (order_id, dish_id, quantity)
+VALUES
+       (1, 1, 4),
+       (1, 2, 5);
+
+INSERT INTO t_order_menu (order_id, menu_id, quantity)
+VALUES
+       (1, 1, 6),
+       (1, 2, 7)
