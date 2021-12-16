@@ -17,12 +17,19 @@ class CustomerService implements ICustomer {
         this.iOrder = iOrder;
     }
 
-    public Customer createCustomer(Customer customer) {
+    public Customer createCustomer(Customer customer) throws CustomerPhoneNumberTakenException {
+        // Check that the phone number is not already taken
+        customerRepository
+                .findCustomerByPhoneNumber(customer.getPhoneNumber())
+                .orElseThrow(CustomerPhoneNumberTakenException::new);
+
         return customerRepository.save(customer);
     }
 
-    public Optional<Customer> findByPhoneNumber(String phoneNumber) {
-        return customerRepository.findCustomerByPhoneNumber(phoneNumber);
+    public Customer findByPhoneNumber(String phoneNumber) throws CustomerNotFoundException {
+        return customerRepository
+                .findCustomerByPhoneNumber(phoneNumber)
+                .orElseThrow(CustomerNotFoundException::new);
     }
 
     public Customer findCustomerById(Long id) throws CustomerNotFoundException {

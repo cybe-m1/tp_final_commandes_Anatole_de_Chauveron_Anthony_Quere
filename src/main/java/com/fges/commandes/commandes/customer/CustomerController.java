@@ -18,7 +18,7 @@ class CustomerController {
     }
 
     @GetMapping("/phonenumber/{phoneNumber}")
-    public Optional<Customer> getCustomerByPhoneNumber(@PathVariable String phoneNumber) {
+    public Customer getCustomerByPhoneNumber(@PathVariable String phoneNumber) throws CustomerNotFoundException {
         return customerService.findByPhoneNumber(phoneNumber);
     }
 
@@ -28,7 +28,7 @@ class CustomerController {
     }
 
     @PostMapping
-    public Customer postCustomer(@RequestBody CreateCustomerRequestDto createCustomerRequestDto) {
+    public Customer postCustomer(@RequestBody CreateCustomerRequestDto createCustomerRequestDto) throws CustomerPhoneNumberTakenException {
         Customer customer = new Customer();
         customer.setFirstName(createCustomerRequestDto.getFirstName());
         customer.setLastName(createCustomerRequestDto.getLastName());
