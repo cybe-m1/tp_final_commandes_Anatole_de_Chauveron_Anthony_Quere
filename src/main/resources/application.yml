@@ -35,4 +35,13 @@ spring:
 # --- End Postgres configuration ---
 
 
+authentication:
+  admin:
+    username: admin
+    password: adminpwd
+  user:
+    username: user
+    password: userpwd
+
+
 
