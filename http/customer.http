@@ -1,11 +1,13 @@
 ### Create a customer
 POST {{api_base_url}}/api/v0/customers
 Content-Type: application/json
+Authorization: {{ admin_authorization_b64 }}
+
 
 {
   "firstName": "Bohort",
   "lastName": "De Gaune",
-  "phoneNumber": "0123456789"
+  "phoneNumber": "9876543210"
 }
 
 > {%
@@ -21,6 +23,8 @@ client.test("Request executed successfully", function() {
 ### Create a customer with existing phone number
 POST {{api_base_url}}/api/v0/customers
 Content-Type: application/json
+Authorization: {{ admin_authorization_b64 }}
+
 
 {
   "firstName": "Perceval",
@@ -37,6 +41,7 @@ client.test("Request failed", function() {
 ### Find a customer by its phone number
 GET {{api_base_url}}/api/v0/customers/phonenumber/0123456789
 Accept: application/json
+Authorization: {{ user_authorization_b64 }}
 
 > {%
 client.test("Request executed successfully", function() {
@@ -49,8 +54,10 @@ client.test("Request executed successfully", function() {
 %}
 
 ### Find a customer by its phone number but customer does not exist
-GET {{api_base_url}}/api/v0/customers/phonenumber/123
+GET {{api_base_url}}/api/v0/customers/phonenumber/0123456789
 Accept: application/json
+Authorization: {{ user_authorization_b64 }}
+
 
 > {%
 client.test("Request executed successfully", function() {
@@ -62,6 +69,8 @@ client.test("Request executed successfully", function() {
 ### List Customer previous orders
 GET {{api_base_url}}/api/v0/customers/1/previous_orders
 Accept: application/json
+Authorization: {{ user_authorization_b64 }}
+
 
 > {%
  client.test("Request executed successfully", function() {

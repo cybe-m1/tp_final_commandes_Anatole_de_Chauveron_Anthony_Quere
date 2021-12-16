@@ -1,4 +1,4 @@
-package com.fges.commandes.commandes.authentication;
+package com.fges.commandes.commandes.users;
 
 import lombok.Getter;
 import lombok.Setter;

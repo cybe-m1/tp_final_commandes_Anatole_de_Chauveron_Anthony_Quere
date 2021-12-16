@@ -1,4 +1,4 @@
-package com.fges.commandes.commandes.authentication;
+package com.fges.commandes.commandes.users;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -38,12 +38,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 // H2 cosole should be available to all users
                 .antMatchers("/h2-console/**").permitAll()
+                // Allow users and admins to use GET method on api routes
                 .antMatchers(HttpMethod.GET, "/api/**").hasAnyRole("ADMIN", "USER")
+                // By default, routes require ADMIN role
                 .anyRequest().hasRole("ADMIN")
                 .and()
                 .httpBasic()
                 .and()
-                .csrf().disable();
+                .csrf().disable()
+                .formLogin().disable();
 
     }
 }

@@ -1,7 +1,8 @@
 ### Create an order
 POST {{api_base_url}}/api/v0/orders
 Content-Type: application/json
-Authorization: Basic admin:adminpwd
+Authorization: {{ admin_authorization_b64 }}
+
 
 {
   "customerId": "1",
@@ -11,6 +12,8 @@ Authorization: Basic admin:adminpwd
 ### Add a dish to an order
 PUT {{api_base_url}}/api/v0/orders/1/dishes
 Content-Type: application/json
+Authorization: {{ admin_authorization_b64 }}
+
 
 {
   "dishId": "4"
@@ -19,6 +22,7 @@ Content-Type: application/json
 ### Add a menu to an order
 PUT {{api_base_url}}/api/v0/orders/1/menus
 Content-Type: application/json
+Authorization: {{ admin_authorization_b64 }}
 
 {
   "menuId": "1"

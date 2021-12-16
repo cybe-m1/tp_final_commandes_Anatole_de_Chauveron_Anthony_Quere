@@ -43,5 +43,10 @@ authentication:
     username: user
     password: userpwd
 
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
 
 
