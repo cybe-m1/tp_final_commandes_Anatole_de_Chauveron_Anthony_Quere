@@ -51,8 +51,6 @@ Ouvrez le projet dans un editeur de code, et lancez le projet.
 
 ## :test_tube: Tester les requêtes
 
-Le code source du projet inclus un export de requetes pour le logicier Postman [ici](tp_component_prog_final.postman_collection.json).
-
 Des fichiers `.http` sont également disponibles pour tester les requêtes dirrectement depuis votre IDE. La fonctionnalité est native sur Intellij IDEA Ultimate. 
 Vous trouverez ces fichiers dans le dossier [http](https://github.com/cybe-m1/tp_final_commandes_Anatole_de_Chauveron_Anthony_Quere/tree/master/http).
 
