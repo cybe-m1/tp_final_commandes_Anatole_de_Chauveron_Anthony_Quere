@@ -8,6 +8,7 @@ import com.fges.commandes.commandes.menu.MenuNotFoundException;
 import com.fges.commandes.commandes.order.dto.AddDishRequestDto;
 import com.fges.commandes.commandes.order.dto.AddMenuRequestDto;
 import com.fges.commandes.commandes.order.dto.CreateOrderRequestDto;
+import com.fges.commandes.commandes.order.dto.TotalAmountResponseDto;
 import com.fges.commandes.commandes.truck.ITruck;
 import com.fges.commandes.commandes.truck.Truck;
 import com.fges.commandes.commandes.truck.TruckNotFoundException;
@@ -45,5 +46,10 @@ class OrderController {
     @PutMapping("/{id}/menus")
     public Order addMenu(@PathVariable Long id, @RequestBody AddMenuRequestDto dto) throws OrderNotFoundException, MenuNotFoundException {
         return orderService.addMenu(id, dto.getMenuId());
+    }
+
+    @GetMapping("/{id}/total")
+    public TotalAmountResponseDto getOrderTotalAmount(@PathVariable Long id) throws OrderNotFoundException {
+        return orderService.getOrderAmount(id);
     }
 }

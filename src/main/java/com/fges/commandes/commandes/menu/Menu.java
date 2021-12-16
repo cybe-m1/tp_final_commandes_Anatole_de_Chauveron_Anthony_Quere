@@ -12,9 +12,10 @@ import java.util.Set;
 @Setter
 @Getter
 @NoArgsConstructor
+@Table(name = "t_menu")
 public class Menu {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String description;

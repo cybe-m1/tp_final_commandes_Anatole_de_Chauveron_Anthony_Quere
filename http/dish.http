@@ -1,5 +1,8 @@
+### Create a dish
 POST {{api_base_url}}/api/v0/dishes
 Content-Type: application/json
+Authorization: {{ admin_authorization_b64 }}
+
 
 {
   "name": "Le Croque",
@@ -9,9 +12,17 @@ Content-Type: application/json
   "type": "MAIN"
 }
 
-###
+### List all dishes
 GET {{api_base_url}}/api/v0/dishes
 Accept: application/json
+Authorization: {{ user_authorization_b64 }}
+
+
+### List all dishes name containing
+GET {{api_base_url}}/api/v0/dishes?search=fr
+Accept: application/json
+Authorization: {{ user_authorization_b64 }}
+
 
 ###
 

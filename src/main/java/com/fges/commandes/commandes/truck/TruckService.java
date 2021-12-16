@@ -13,8 +13,8 @@ class TruckService implements ITruck {
         this.truckRepository = truckRepository;
     }
 
-    public List<Truck> listTrucks() {
-        return this.truckRepository.findAll();
+    public List<Truck> listTrucks(String search) {
+        return this.truckRepository.findAllByNameContaining(search);
     }
 
     public Truck createTruck(Truck truck) {

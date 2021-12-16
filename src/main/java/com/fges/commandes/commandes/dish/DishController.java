@@ -15,8 +15,8 @@ class DishController {
     }
 
     @GetMapping
-    public List<Dish> getAllDishes() {
-        return dishService.listAllDishes();
+    public List<Dish> getAllDishes(@RequestParam(defaultValue = "") String search) {
+        return dishService.findByNameContaining(search);
     }
 
     @PostMapping

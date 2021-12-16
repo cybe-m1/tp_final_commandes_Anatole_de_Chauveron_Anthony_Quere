@@ -1,5 +1,8 @@
+### Create a menu
 POST {{api_base_url}}/api/v0/menus
 Content-Type: application/json
+Authorization: {{ admin_authorization_b64 }}
+
 
 {
   "name": "Le gras c'est la vie",
@@ -8,21 +11,26 @@ Content-Type: application/json
   "dishes": []
 }
 
-###
+### List all menus
 GET {{api_base_url}}/api/v0/menus
 Accept: application/json
+Authorization: {{ user_authorization_b64 }}
+
 
 ###
-POST {{api_base_url}}/api/v0/menus/2/dish
-Accept: application/json
+POST {{api_base_url}}/api/v0/menus/1/dishes
+Content-Type: application/json
+Authorization: {{ admin_authorization_b64 }}
 
 {
   "dishId": "4"
 }
 
 ###
-DELETE {{api_base_url}}/api/v0/menus/2/dish/4
-Accept: application/json
+DELETE {{api_base_url}}/api/v0/menus/2/dishes/2
+Content-Type: application/json
+Authorization: {{ admin_authorization_b64 }}
+
 
 ###
 

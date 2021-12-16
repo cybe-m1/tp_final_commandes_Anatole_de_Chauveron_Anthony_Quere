@@ -16,8 +16,8 @@ class TruckController {
     }
 
     @GetMapping
-    public List<Truck> getTrucks() {
-        return truckService.listTrucks();
+    public List<Truck> getTrucks(@RequestParam(defaultValue = "") String search) {
+        return truckService.listTrucks(search);
     }
 
     @PostMapping

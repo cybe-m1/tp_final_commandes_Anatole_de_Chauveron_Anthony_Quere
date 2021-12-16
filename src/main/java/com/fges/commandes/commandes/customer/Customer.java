@@ -10,9 +10,10 @@ import javax.persistence.*;
 @Setter
 @Getter
 @NoArgsConstructor
+@Table(name = "t_customer")
 public class Customer {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
     private String lastName;
