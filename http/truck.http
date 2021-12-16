@@ -14,6 +14,11 @@ GET {{api_base_url}}/api/v0/trucks
 Accept: application/json
 Authorization: {{ user_authorization_b64 }}
 
+### List all trucks name containing
+GET {{api_base_url}}/api/v0/trucks?search=a
+Accept: application/json
+Authorization: {{ user_authorization_b64 }}
+
 
 ###
 
