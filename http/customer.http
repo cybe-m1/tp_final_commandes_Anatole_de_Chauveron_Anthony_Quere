@@ -73,3 +73,8 @@ Authorization: {{ user_authorization_b64 }}
      client.assert(response.status === 200, "Request failed");
  })
  %}
+
+### List Customers
+GET {{api_base_url}}/api/v0/customers/
+Accept: application/json
+Authorization: {{ user_authorization_b64 }}

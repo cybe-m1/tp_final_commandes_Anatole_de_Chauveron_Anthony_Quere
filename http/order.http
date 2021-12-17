@@ -32,3 +32,8 @@ Authorization: {{ admin_authorization_b64 }}
 GET {{api_base_url}}/api/v0/orders/1/total
 Authorization: {{ user_authorization_b64 }}
 Accept: Application/json
+
+### List Orders
+GET {{api_base_url}}/api/v0/orders
+Accept: application/json
+Authorization: {{ user_authorization_b64 }}

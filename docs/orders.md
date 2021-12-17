@@ -159,3 +159,47 @@ Response :
   "total": 0.0
 }
 ```
+
+- **[GET]** Get all orders :
+
+```http request
+http://localhost:8080/api/v0/orders
+```
+
+Response :
+```json
+[
+  {
+    "id": 1,
+    "customer": {
+      "id": 1,
+      "firstName": "Artur",
+      "lastName": "Pendragon",
+      "phoneNumber": "0123456789"
+    },
+    "truck": {
+      "id": 1,
+      "name": "Les petits pédestres",
+      "description": "Le truck de Yvain et Gauvain !"
+    },
+    "dishes": [],
+    "menus": []
+  },
+  {
+    "id": 2,
+    "customer": {
+      "id": 1,
+      "firstName": "Artur",
+      "lastName": "Pendragon",
+      "phoneNumber": "0123456789"
+    },
+    "truck": {
+      "id": 1,
+      "name": "Les petits pédestres",
+      "description": "Le truck de Yvain et Gauvain !"
+    },
+    "dishes": [],
+    "menus": []
+  }
+]
+```
