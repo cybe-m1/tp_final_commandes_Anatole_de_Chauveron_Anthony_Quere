@@ -14,6 +14,8 @@ import com.fges.commandes.commandes.truck.Truck;
 import com.fges.commandes.commandes.truck.TruckNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(path = "/api/v0/orders")
 class OrderController {
@@ -51,5 +53,10 @@ class OrderController {
     @GetMapping("/{id}/total")
     public TotalAmountResponseDto getOrderTotalAmount(@PathVariable Long id) throws OrderNotFoundException {
         return orderService.getOrderAmount(id);
+    }
+
+    @GetMapping
+    public List<Order> findAllOrders() {
+        return orderService.listAllOrders();
     }
 }

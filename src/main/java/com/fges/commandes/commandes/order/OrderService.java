@@ -87,4 +87,8 @@ class OrderService implements IOrder {
         return new TotalAmountResponseDto(total, tva, total + tva);
     }
 
+    public List<Order> listAllOrders() {
+        return orderRepository.findAll();
+    }
+
 }

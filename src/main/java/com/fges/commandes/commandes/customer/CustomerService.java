@@ -47,4 +47,8 @@ class CustomerService implements ICustomer {
 
         return iOrder.listCustomerPreviousOrder(customer);
     }
+
+    public List<Customer> listCustomers() {
+        return customerRepository.findAll();
+    }
 }

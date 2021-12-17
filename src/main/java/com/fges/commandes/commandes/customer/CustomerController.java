@@ -35,4 +35,9 @@ class CustomerController {
         customer.setPhoneNumber(createCustomerRequestDto.getPhoneNumber());
         return customerService.createCustomer(customer);
     }
+
+    @GetMapping
+    public List<Customer> listCustomers() {
+        return customerService.listCustomers();
+    }
 }
